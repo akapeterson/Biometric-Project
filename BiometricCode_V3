@@ -36,7 +36,10 @@ print('Currently used templates: ' + str(f.getTemplateCount()) +'/'+ str(f.getSt
 def searchFinger():
     try:
         for i in range (3, 0, -1):
-            Begin()
+            lcd.clear()
+            lcd.message('''Waiting for
+Finger Placement''')
+            
             while ( f.readImage() == False ):
                 pass
             ## Wait that finger is read        
@@ -59,8 +62,9 @@ match found!''')
                 lcd.clear()
                 lcd.message('Try Again')
                 time.sleep(2.0)
-                #Begin()
-                #searchFinger()
+                #lcd.clear()
+                #lcd.message(i,'Attempts left')
+                #time.sleep(2.0)
             else:
                 lcd.clear()
                 lcd.message('''System Unlocked!
@@ -68,10 +72,13 @@ Access Granded''')
                 time.sleep(5.0)
                 Begin()
                 searchFinger()
-        if i == 1:
+        if (i == 1):
             lcd.clear()
             lcd.message("Attempts Exhaused")
-            time.sleep(5.0)
+            time.sleep(2.0)
+            lcd.clear()
+            lcd.message("Alarm Activated")
+            time.sleep(2.0)
         else:
             lcd.clear()
             lcd.message("works2")
@@ -94,20 +101,16 @@ Access Granded''')
 def Begin():
     lcd.clear()
     lcd.message('System Locked!')
-    time.sleep(0.2)
+    time.sleep(0.5)
     lcd.clear()
     time.sleep(0.5)
     lcd.message('System Locked!')
-    time.sleep(0.2)
+    time.sleep(0.5)
     lcd.clear()
     time.sleep(0.5)
     lcd.message('System Locked!')
-    time.sleep(0.2)
-    lcd.clear()
     time.sleep(0.5)
-    lcd.message('''Waiting for
-Finger Placement''')
-    time.sleep(0.1)
+    lcd.clear()
     
 while True:
     Begin()    
