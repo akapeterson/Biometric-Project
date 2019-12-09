@@ -1,3 +1,4 @@
+//By Andrew Peterson
 import time 
 import hashlib
 from pyfingerprint.pyfingerprint import PyFingerprint
